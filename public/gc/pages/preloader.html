@@ -1,0 +1,112 @@
+<template>
+<div class="page">
+    <div class="navbar navbar-style-1 border-bottom">
+		<div class="navbar-inner">
+			<a href="#" class="link back">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M0.439312 13.0606L5.75391 18.3752C6.04683 18.6682 6.43069 18.8146 6.81459 18.8146C7.1985 18.8146 7.58236 18.6682 7.87528 18.3752C8.46103 17.7894 8.46103 16.8397 7.87528 16.2539L5.12133 13.5H22.5C23.3284 13.5 24 12.8284 24 12C24 11.1716 23.3284 10.5 22.5 10.5H5.12133L7.87528 7.7461C8.46103 7.1603 8.46103 6.21057 7.87528 5.62477C7.28944 5.03898 6.33975 5.03898 5.75391 5.62477L0.439312 10.9394C-0.146437 11.5251 -0.146437 12.4749 0.439312 13.0606Z" fill="black"/>
+				</svg>
+			</a>
+			<div class="title">Preloader</div>
+		</div>
+	</div>
+    <div class="page-content">
+      <div class="block">
+        <p>How about an activity indicator? Framework7 has a nice one. The F7 Preloader is made with SVG and animated
+          with CSS so it can be easily resized.</p>
+      </div>
+      <div class="block-title">Default</div>
+      <div class="block block-strong demo-preloaders align-items-stretch text-align-center">
+        <div class="row">
+          <div class="col-25">
+            <div class="preloader"></div>
+          </div>
+          <div class="col-25 demo-black-col">
+            <div class="preloader color-white"></div>
+          </div>
+          <div class="col-25">
+            <div class="preloader preloader-large"></div>
+          </div>
+          <div class="col-25 demo-black-col">
+            <div class="preloader preloader-large color-white"></div>
+          </div>
+        </div>
+      </div>
+      <div class="block-title">Color Preloaders</div>
+      <div class="block block-strong text-align-center">
+        <div class="row">
+          <div class="col-25">
+            <div class="preloader color-red"></div>
+          </div>
+          <div class="col-25">
+            <div class="preloader color-green"></div>
+          </div>
+          <div class="col-25">
+            <div class="preloader color-orange"></div>
+          </div>
+          <div class="col-25">
+            <div class="preloader color-blue"></div>
+          </div>
+        </div>
+      </div>
+      <div class="block-title">Multi-color</div>
+      <div class="block block-strong text-align-center">
+        <div class="preloader color-multi"></div>
+      </div>
+      <div class="block-title">Preloader Modals</div>
+      <div class="block block-strong">
+        <p>With <b>app.preloader.show()</b> you can show small overlay with preloader indicator.</p>
+        <p>
+          <a class="button button-fill" @click=${openIndicator}>Open Small Indicator</a>
+        </p>
+        <p>With <b>app.dialog.preloader()</b> you can show dialog modal with preloader indicator.</p>
+        <p>
+          <a class="button button-fill" @click=${openDialog}>Open Dialog Preloader</a>
+        </p>
+        <p>With <b>app.dialog.preloader('My text...')</b> you can show dialog preloader modal with custom title.</p>
+        <p>
+          <a class="button button-fill" @click=${openCustomDialog}>Open Dialog Preloader</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</template>
+<style>
+  .preloader-large {
+    width: 42px;
+    height: 42px;
+  }
+
+  .demo-preloaders .col-25 {
+    padding: 5px;
+    line-height: 42px;
+  }
+
+  .demo-black-col {
+    background: #000;
+  }
+</style>
+<script>
+  export default (props, { $f7 }) => {
+    const openIndicator = () => {
+      $f7.preloader.show();
+      setTimeout(function () {
+        $f7.preloader.hide();
+      }, 2000);
+    }
+    const openDialog = () => {
+      $f7.dialog.preloader();
+      setTimeout(function () {
+        $f7.dialog.close();
+      }, 2000);
+    }
+    const openCustomDialog = () => {
+      $f7.dialog.preloader('My text...');
+      setTimeout(function () {
+        $f7.dialog.close();
+      }, 2000);
+    }
+
+    return $render;
+  };
+</script>

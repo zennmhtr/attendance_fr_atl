@@ -1,0 +1,131 @@
+<template>
+<div class="page">
+    <div class="navbar navbar-style-1 border-bottom">
+		<div class="navbar-inner">
+			<a href="#" class="link back">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M0.439312 13.0606L5.75391 18.3752C6.04683 18.6682 6.43069 18.8146 6.81459 18.8146C7.1985 18.8146 7.58236 18.6682 7.87528 18.3752C8.46103 17.7894 8.46103 16.8397 7.87528 16.2539L5.12133 13.5H22.5C23.3284 13.5 24 12.8284 24 12C24 11.1716 23.3284 10.5 22.5 10.5H5.12133L7.87528 7.7461C8.46103 7.1603 8.46103 6.21057 7.87528 5.62477C7.28944 5.03898 6.33975 5.03898 5.75391 5.62477L0.439312 10.9394C-0.146437 11.5251 -0.146437 12.4749 0.439312 13.0606Z" fill="black"/>
+				</svg>
+			</a>
+			<div class="title">Photo Browser</div>
+		</div>
+	</div>
+    <div class="page-content">
+      <div class="block block-strong">
+        <p>Photo Browser is a standalone and highly configurable component that allows to open window with photo viewer
+          and navigation elements with the following features:</p>
+        <ul>
+          <li>Swiper between photos</li>
+          <li>Multi-gestures support for zooming</li>
+          <li>Toggle zoom by double tap on photo</li>
+          <li>Single click on photo to toggle Exposition mode</li>
+        </ul>
+      </div>
+      <div class="block block-strong">
+        <p>Photo Browser could be opened in a three ways - as a Standalone component (Popup modification), in Popup, and
+          as separate Page:</p>
+        <div class="row">
+          <div class="col-33"><a href="#" class="button button-fill" @click=${openStandalone}>Standalone</a></div>
+          <div class="col-33"><a href="#" class="button button-fill" @click=${openPopup}>Popup</a></div>
+          <div class="col-33"><a href="#" class="button button-fill" @click=${openPage}>Page</a></div>
+        </div>
+      </div>
+      <div class="block block-strong">
+        <p>Photo Browser supports 2 default themes - default Light (like in previous examples) and Dark theme. Here is a
+          Dark theme examples:</p>
+        <div class="row">
+          <div class="col-33"><a href="#" class="button button-fill" @click=${openStandaloneDark}>Standalone</a></div>
+          <div class="col-33"><a href="#" class="button button-fill" @click=${openPopupDark}>Popup</a></div>
+          <div class="col-33"><a href="#" class="button button-fill" @click=${openPageDark}>Page</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  export default (props, { $f7, $on }) => {
+    const photos = [
+      {
+        url: 'img/beach.jpg',
+        caption: 'Amazing beach in Goa, India'
+      },
+      'http://placekitten.com/1024/1024',
+      'img/lock.jpg',
+      {
+        url: 'img/monkey.jpg',
+        caption: 'I met this monkey in Chinese mountains'
+      },
+      {
+        url: 'img/mountains.jpg',
+        caption: 'Beautiful mountains in Zhangjiajie, China'
+      }
+    ];
+
+    let standalone;
+    let popup;
+    let page;
+    let standaloneDark;
+    let popupDark;
+    let pageDark;
+
+    const openStandalone = () => {
+      standalone.open();
+    }
+    const openPopup = () => {
+      popup.open();
+    }
+    const openPage = () => {
+      page.open();
+    }
+    const openStandaloneDark = () => {
+      standaloneDark.open();
+    }
+    const openPopupDark = () => {
+      popupDark.open();
+    }
+    const openPageDark = () => {
+      pageDark.open();
+    }
+    $on('pageInit', () => {
+      // Create PBs when page init
+      standalone = $f7.photoBrowser.create({
+        photos: photos,
+      });
+      popup = $f7.photoBrowser.create({
+        photos: photos,
+        type: 'popup',
+      });
+      page = $f7.photoBrowser.create({
+        photos: photos,
+        type: 'page',
+        backLinkText: 'Back',
+      });
+      standaloneDark = $f7.photoBrowser.create({
+        photos: photos,
+        theme: 'dark',
+      });
+      popupDark = $f7.photoBrowser.create({
+        photos: photos,
+        type: 'popup',
+        theme: 'dark',
+      });
+      pageDark = $f7.photoBrowser.create({
+        photos: photos,
+        type: 'page',
+        backLinkText: 'Back',
+        theme: 'dark',
+      });
+    });
+    $on('pageBeforeRemove', () => {
+      // Destroy PBs on page remove
+      standalone.destroy();
+      popup.destroy();
+      page.destroy();
+      standaloneDark.destroy();
+      popupDark.destroy();
+      pageDark.destroy();
+    });
+
+    return $render;
+  };
+</script>

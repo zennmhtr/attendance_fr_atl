@@ -1,0 +1,201 @@
+<template>
+<div class="page">
+    <div class="navbar navbar-style-1 border-bottom">
+		<div class="navbar-inner">
+			<a href="#" class="link back">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M0.439312 13.0606L5.75391 18.3752C6.04683 18.6682 6.43069 18.8146 6.81459 18.8146C7.1985 18.8146 7.58236 18.6682 7.87528 18.3752C8.46103 17.7894 8.46103 16.8397 7.87528 16.2539L5.12133 13.5H22.5C23.3284 13.5 24 12.8284 24 12C24 11.1716 23.3284 10.5 22.5 10.5H5.12133L7.87528 7.7461C8.46103 7.1603 8.46103 6.21057 7.87528 5.62477C7.28944 5.03898 6.33975 5.03898 5.75391 5.62477L0.439312 10.9394C-0.146437 11.5251 -0.146437 12.4749 0.439312 13.0606Z" fill="black"/>
+				</svg>
+			</a>
+			<div class="title">Checkbox</div>
+		</div>
+	</div>
+    <div class="page-content">
+      <div class="block-title">Inline</div>
+      <div class="block block-strong">
+        <p>Lorem <label class="checkbox"><input type="checkbox" /><i class="icon-checkbox"></i></label> ipsum dolor sit amet, consectetur adipisicing elit. Alias beatae illo nihil aut eius commodi sint eveniet aliquid eligendi <label class="checkbox"><input type="checkbox" /><i class="icon-checkbox"></i></label> ad delectus impedit tempore nemo, enim vel praesentium consequatur nulla mollitia!</p>
+      </div>
+      <div class="block-title">Checkbox Group</div>
+      <div class="list">
+        <ul>
+          <li>
+            <label class="item-checkbox item-content">
+              <input type="checkbox" name="demo-checkbox" value="Books" checked/>
+              <i class="icon icon-checkbox"></i>
+              <div class="item-inner">
+                <div class="item-title">Books</div>
+              </div>
+            </label>
+          </li>
+          <li>
+            <label class="item-checkbox item-content">
+              <input type="checkbox" name="demo-checkbox" value="Movies"/>
+              <i class="icon icon-checkbox"></i>
+              <div class="item-inner">
+                <div class="item-title">Movies</div>
+              </div>
+            </label>
+          </li>
+          <li>
+            <label class="item-checkbox item-content">
+              <input type="checkbox" name="demo-checkbox" value="Food"/>
+              <i class="icon icon-checkbox"></i>
+              <div class="item-inner">
+                <div class="item-title">Food</div>
+              </div>
+            </label>
+          </li>
+          <li>
+            <label class="item-checkbox item-content">
+              <input type="checkbox" name="demo-checkbox" value="Drinks"/>
+              <i class="icon icon-checkbox"></i>
+              <div class="item-inner">
+                <div class="item-title">Drinks</div>
+              </div>
+            </label>
+          </li>
+        </ul>
+      </div>
+
+      <div class="block-title">Indeterminate State</div>
+      <div class="list">
+        <ul>
+          <li>
+            <label class="item-checkbox item-content">
+              <input
+                type="checkbox"
+                name="demo-checkbox"
+                checked=${movies.length === 2}
+                indeterminate=${movies.length === 1}
+                @change=${onMoviesChange}
+              />
+              <i class="icon icon-checkbox"></i>
+              <div class="item-inner">
+                <div class="item-title">Movies</div>
+              </div>
+            </label>
+            <ul>
+              <li>
+                <label class="item-checkbox item-content">
+                  <input
+                    type="checkbox"
+                    name="demo-checkbox"
+                    value="Movie 1"
+                    checked=${movies.indexOf('Movie 1') >= 0}
+                    @change=${onMovieChange}
+                  />
+                  <i class="icon icon-checkbox"></i>
+                  <div class="item-inner">
+                    <div class="item-title">Movie 1</div>
+                  </div>
+                </label>
+              </li>
+              <li>
+                <label class="item-checkbox item-content">
+                  <input
+                    type="checkbox"
+                    name="demo-checkbox"
+                    value="Movie 2"
+                    checked=${movies.indexOf('Movie 2') >= 0}
+                    @change=${onMovieChange}
+                  />
+                  <i class="icon icon-checkbox"></i>
+                  <div class="item-inner">
+                    <div class="item-title">Movie 2</div>
+                  </div>
+                </label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="block-title">With Media Lists</div>
+      <div class="list media-list">
+        <ul>
+          <li>
+            <label class="item-checkbox item-content">
+              <input type="checkbox" name="demo-media-checkbox" value="1"/>
+              <i class="icon icon-checkbox"></i>
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">Facebook</div>
+                  <div class="item-after">17:14</div>
+                </div>
+                <div class="item-subtitle">New messages from John Doe</div>
+                <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
+              </div>
+            </label>
+          </li>
+          <li>
+            <label class="item-checkbox item-content">
+              <input type="checkbox" name="demo-media-checkbox" value="2"/>
+              <i class="icon icon-checkbox"></i>
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">John Doe (via Twitter)</div>
+                  <div class="item-after">17:11</div>
+                </div>
+                <div class="item-subtitle">John Doe (@_johndoe) mentioned you on Twitter!</div>
+                <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
+              </div>
+            </label>
+          </li>
+          <li>
+            <label class="item-checkbox item-content">
+              <input type="checkbox" name="demo-media-checkbox" value="3"/>
+              <i class="icon icon-checkbox"></i>
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">Facebook</div>
+                  <div class="item-after">16:48</div>
+                </div>
+                <div class="item-subtitle">New messages from John Doe</div>
+                <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
+              </div>
+            </label>
+          </li>
+          <li>
+            <label class="item-checkbox item-content">
+              <input type="checkbox" name="demo-media-checkbox" value="4"/>
+              <i class="icon icon-checkbox"></i>
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">John Doe (via Twitter)</div>
+                  <div class="item-after">15:32</div>
+                </div>
+                <div class="item-subtitle">John Doe (@_johndoe) mentioned you on Twitter!</div>
+                <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
+              </div>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  export default (props, { $update }) => {
+    let movies = ['Movie 1'];
+
+    const onMovieChange = (e) => {
+      var value = e.target.value;
+      if (e.target.checked) {
+        movies.push(value);
+      } else {
+        movies.splice(movies.indexOf(value), 1);
+      }
+      $update();
+    }
+    const onMoviesChange = (e) => {
+      if (movies.length === 1 || movies.length === 0) {
+        movies = ['Movie 1', 'Movie 2'];
+      } else if (movies.length === 2) {
+        movies = [];
+      }
+      $update();
+    }
+
+    return $render;
+  };
+</script>

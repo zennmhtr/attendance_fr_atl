@@ -1,0 +1,14 @@
+// Utilities
+
+// border style
+.border-dashed {
+    border-style: dashed !important;
+}
+
+$utilities: (
+    "font-size-custom": (
+        property: font-size,
+        class: fs,
+        values: $font-size-custom
+    )
+);

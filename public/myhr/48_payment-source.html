@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, viewport-fit=cover">
+    <title>transfer</title>
+    <!-- Favicon and Touch Icons  -->
+    <link rel="shortcut icon" href="images/logo.png" />
+    <link rel="apple-touch-icon-precomposed" href="images/logo.png" />
+    <!-- Font -->
+    <link rel="stylesheet" href="fonts/fonts.css" />
+    <!-- Icons -->
+    <link rel="stylesheet" href="fonts/icons-alipay.css">
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+    <link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+    <link rel="apple-touch-icon" sizes="192x192" href="app/icons/icon-192x192.png">
+</head>
+
+<body class="bg_surface_color">
+
+       <!-- preloade -->
+       <div class="preload preload-container">
+        <div class="preload-logo">
+          <div class="spinner"></div>
+        </div>
+      </div>
+    <!-- /preload -->
+    <div class="app-header st1">
+        <div class="tf-container">
+            <div class="tf-topbar d-flex justify-content-center align-items-center">
+               <a href="#" class="back-btn"><i class="icon-left white_color"></i></a> 
+                <h3 class="white_color">Transfer</h3>
+            </div>
+        </div>
+    </div>
+    <div class="card-secton transfer-section">
+        <div class="tf-container">
+            <div class="tf-balance-box transfer-amount">
+                <div class="top">
+                    <i class="icon-group-dollar"></i>
+                    <h1>$  70.0</h1>
+                    <h4 class="secondary_color fw_4">Electric Payment 12/2022</h4>
+                </div>
+                <div class="bottom d-flex justify-content-between align-items-center">
+                    <h4 class="secondary_color fw_4">Transaction fee</h4>
+                    <h4><a href="#">Free</a></h4>
+                </div>
+                
+            </div>
+           
+        </div>
+    </div>
+    <div class="transfer-card">
+        <div class="tf-container">
+            <div class="tf-card-block d-flex align-items-center justify-content-between">
+                <div class="inner d-flex align-items-center">
+                    <i class="logo icon-wallet-filled-money-tool"></i>
+                    <div class="content">
+                        <h4><a href="#" class="fw_6">Alipay Wallet</a></h4>
+                        <p>Themesflat</p>
+                    </div>
+                </div>
+                <input type="radio" checked name="radio">
+            </div>
+            <div class="tf-card-block d-flex align-items-center justify-content-between">
+                <div class="inner d-flex align-items-center">
+                    <div class="logo-img">
+                        <img src="images/logo-banks/card-visa2.png" alt="image">
+                    </div>
+                    <div class="content">
+                        <h4><a href="#" class="fw_6">Visacard</a></h4>
+                        <p>****  ****  ****  4234</p>
+                    </div>
+                </div>
+                <input type="radio" name="radio">
+            </div>
+        </div>
+        <div class="bottom-navigation-bar">
+            <div class="tf-container">
+                <a href="#" id="btn-popup-down" class="tf-btn accent large">Confirm Transaction</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="tf-panel down">
+        <div class="panel_overlay"></div>
+        <div class="panel-box panel-down">
+            <div class="header">
+                <div class="tf-container">
+                    <div class="tf-statusbar d-flex justify-content-center align-items-center">
+                        <a href="#" class="clear-panel"> <i class="icon-close1"></i> </a>
+                        <h3>Enter your PIN</h3>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="mt-5">
+                <div class="tf-container">
+                    <form class="tf-form-verify" action="50_successful.html">
+                        <div class="d-flex group-input-verify">
+                            <input type="tel" maxlength="1" pattern="[0-9]" class="input-verify" value="3">
+                            <input type="tel" maxlength="1" pattern="[0-9]" class="input-verify" value="6">
+                            <input type="tel" maxlength="1" pattern="[0-9]" class="input-verify" value="2">
+                            <input type="tel" maxlength="1" pattern="[0-9]" class="input-verify" value="">
+                        </div>
+                        <div class="text-send-code">
+                            <p class="fw_4">Enter  your PIN to proceed</p>
+                        </div>
+                        <div class="mt-7 mb-6">
+                            <button type="submit" class="tf-btn accent">Continue</button>
+                        </div>
+                </form>
+                </div>
+                    
+        
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="javascript/jquery.min.js"></script>
+    <script type="text/javascript" src="javascript/bootstrap.min.js"></script>
+    <script type="text/javascript" src="javascript/verify-input.js"></script>
+    <script type="text/javascript" src="javascript/main.js"></script>
+    
+</body>
+
+</html>
